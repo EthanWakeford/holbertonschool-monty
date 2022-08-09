@@ -39,5 +39,12 @@ typedef struct instruction_s
 } instruction_t;
 
 char *make_opcode(char *buffer);
+void push(struct_t **stack, unsigned int linenumber);
+void pall(struct_t **stack, unsigned int linenumber);
+void pint(struct_t **stack, unsigned int linenumber);
+void pop(struct_t **stack, unsigned int linenumber);
+void swap(struct_t **stack, unsigned int linenumber);
+void add(struct_t **stack, unsigned int linenumber);
+void nop(struct_t **stack, unsigned int linenumber);
 
 #endif
