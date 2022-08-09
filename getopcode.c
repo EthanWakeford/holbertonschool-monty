@@ -7,7 +7,7 @@
  * Return: function pointer
  */
 
-void (*getop(char *opcode))(struct_t **stack, unsigned int linenumber)
+void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber)
 {
 	unsigned int i;
 
