@@ -85,7 +85,7 @@ void add(stack_t **stack, unsigned int linenumber)
 			exit(EXIT_FAILURE);
 		}
 	}
-	tmp->n += tmp->prev->n;
+	(*stack)->next->n += (*stack)->n;
 	pop(stack, linenumber);
 }
 
