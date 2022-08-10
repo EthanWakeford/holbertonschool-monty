@@ -5,10 +5,10 @@ char *make_opcode(char *buffer)
 {
 	char *opcode;
 
-	opcode = strtok(buffer, " \t");
+	opcode = strtok(buffer, " \t\n");
 	if (opcode == NULL)
 		return (NULL);
-	global.oparg = strtok(NULL, " \t");
+	global.oparg = strtok(NULL, " \t\n");
 	return (opcode);
 }
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	char *opcode;
 	size_t bufsize;
 	void (*operation)(stack_t **stack, unsigned int line_number);
-	stack_t **stack = NULL;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -31,11 +31,10 @@ int main(int argc, char **argv)
 		opcode = make_opcode(global.buffer);
 		if (opcode == NULL)
 			continue;
-		printf("%s\n", opcode);
 		operation = getop(opcode);
 		if (operation == NULL)
 			exit (EXIT_FAILURE);
-		operation(stack, 0);
+		operation(&stack, 0);
 	}
 	fclose(global.fp);
 	free(global.buffer);
