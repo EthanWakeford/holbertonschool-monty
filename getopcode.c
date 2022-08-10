@@ -26,7 +26,7 @@ void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber)
 	{
 		if (strcmp(opcodeFunction[i].opcode, opcode) == 0)
 		{
-			return(opcodeFunction[i].f);
+			return (opcodeFunction[i].f);
 		}
 	}
 

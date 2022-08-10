@@ -16,6 +16,11 @@ void free_stack(stack_t *stack)
 	}
 }
 
+/**
+*free_global - frees globala vars and calls free_stack
+*@stack: first node of stack
+*/
+
 void free_global(stack_t *stack)
 {
 	free_stack(stack);

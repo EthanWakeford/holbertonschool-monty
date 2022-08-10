@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+*make_opcode - gets the opcode from line
+*@buffer: buffer to read from
+*Return: opcode, NULL on faiulure
+*/
 
 char *make_opcode(char *buffer)
 {
@@ -11,6 +16,13 @@ char *make_opcode(char *buffer)
 	global.oparg = strtok(NULL, " \t\n");
 	return (opcode);
 }
+
+/**
+*main - interperates a monty file
+*@argc: argument count
+*@argv: argument vector
+*Return: exit success
+*/
 
 int main(int argc, char **argv)
 {
@@ -26,7 +38,11 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	global.fp = fopen(argv[1], "r");
-
+	if (global.fp == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while (getline(&global.buffer, &bufsize, global.fp) != -1)
 	{
 		line_number++;
