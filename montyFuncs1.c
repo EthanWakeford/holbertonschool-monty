@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int linenumber)
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_global(*stack);
 		exit(EXIT_FAILURE);
 	}
