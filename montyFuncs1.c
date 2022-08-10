@@ -13,6 +13,12 @@ void push(stack_t **stack, unsigned int linenumber)
 	stack_t *new;
 	int i = 0;
 
+	if (!global.oparg)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", linenumber);
+		free_global(*stack);
+		exit(EXIT_FAILURE);
+	}
 	while (global.oparg[i])
 	{
 		if (isdigit(global.oparg[i]) == 0 && global.oparg[i] != '-')
@@ -25,7 +31,11 @@ void push(stack_t **stack, unsigned int linenumber)
 	}
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		return;
+	{
+		fprintf(stderr, "Error: malloc failed");
+		free_global(*stack);
+		exit(EXIT_FAILURE)
+	}
 
 	if ((*stack) != NULL)
 		(*stack)->prev = new;
