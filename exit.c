@@ -24,6 +24,8 @@ void free_stack(stack_t *stack)
 void free_global(stack_t *stack)
 {
 	free_stack(stack);
-	free(global.buffer);
-	fclose(global.fp);
+	if (global.buffer != NULL)
+		free(global.buffer);
+	if (global.fp != NULL)
+		fclose(global.fp);
 }
