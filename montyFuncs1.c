@@ -17,7 +17,7 @@ void push(stack_t **stack, unsigned int linenumber)
 	{
 		if (isdigit(global.oparg[i] == 0 && global.oparg[i] != '-'))
 		{
-			printf("L%u: usage: push integer\n", linenumber);
+			fprintf(stderr, "L%u: usage: push integer\n", linenumber);
 			exit(EXIT_FAILURE);
 		}
 		i++;
