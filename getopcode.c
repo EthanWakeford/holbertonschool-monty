@@ -24,8 +24,10 @@ void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber)
 
 	for (i = 0; opcodeFunction[i].opcode; i++)
 	{
+		printf("%d\n", i);
 		if (strcmp(opcodeFunction[i].opcode, opcode) == 0)
 			break;
+		printf("%d\n", i);
 	}
 	return (opcodeFunction[i].f);
 }
