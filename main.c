@@ -52,8 +52,8 @@ int main(int argc, char **argv)
 		operation = getop(opcode);
 		if (operation == NULL)
 		{
-			free_global(stack);
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			free_global(stack);
 			exit(EXIT_FAILURE);
 		}
 		operation(&stack, line_number);
