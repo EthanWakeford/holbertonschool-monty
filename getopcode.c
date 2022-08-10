@@ -25,7 +25,12 @@ void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber)
 	for (i = 0; opcodeFunction[i].opcode; i++)
 	{
 		if (strcmp(opcodeFunction[i].opcode, opcode) == 0)
-			break;
+		{
+			opcodeFunction[i].f(stack, linenumber);
+			return;
+		}
 	}
-	return (opcodeFunction[i].f);
+
+	fprintf(stderr, "L%d: unknown instruction %s\n", linenumber, opcode);
+	exit(EXIT_FAILURE);
 }
