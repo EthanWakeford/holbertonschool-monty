@@ -38,5 +38,5 @@ int main(int argc, char **argv)
 	}
 	fclose(global.fp);
 	free(global.buffer);
-	return (1);
+	return (EXIT_SUCCESS);
 }
