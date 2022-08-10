@@ -10,7 +10,30 @@
 
 void push(struct_t **stack, unsigned int linenumber)
 {
+	struct_t *new;
+	int i = 0;
 
+	while (oparg[i])
+	{
+		if (isdigit(oparg[i] == 0 && oparg[i] != '-'))
+		{
+			printf("L%u: usage: push integer\n", linenumber);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	new = malloc(sizeof(struct_t));
+	if (!new)
+		return (NULL);
+
+	if ((*stack) != NULL)
+		(*stack)->prev = new;
+
+
+	new->n = atoi(oparg);
+	new->next = *stack;
+	new->prev = NULL;
+	*stack = new;
 }
 
 /**
