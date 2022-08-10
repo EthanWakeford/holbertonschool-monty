@@ -46,7 +46,13 @@ void push(struct_t **stack, unsigned int linenumber)
 
 void pall(struct_t **stack, unsigned int linenumber)
 {
+	struct_t *printPtr = *stack;
 
+	while (printPtr)
+	{
+		printf("%d\n", printPtr->n);
+		printPtr = printPtr->next;
+	}
 }
 
 /**
