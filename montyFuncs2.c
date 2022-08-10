@@ -9,8 +9,18 @@
  */
 void pop(stack_t **stack, unsigned int linenumber)
 {
-	(void)stack;
-	(void)linenumber;
+	stack_t *ptrCpy = (*stack)->next;
+
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", linenumber);
+		free_global(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	ptrCpy->prev = NULL;
+	free(*stack);
+	*stack = ptrCpy;
 }
 
 /**
