@@ -1,5 +1,6 @@
 #include "monty.h"
 
+
 char *make_opcode(char *buffer)
 {
 	char *opcode;
@@ -8,28 +9,33 @@ char *make_opcode(char *buffer)
 	printf("%s\n", opcode);
 	if (opcode == NULL)
 		return (NULL);
+	global.oparg = strtok(NULL, " \t");
 	return (opcode);
 }
 
 int main(int argc, char **argv)
 {
-	char *buffer, *opcode;
+	char *opcode;
 	size_t bufsize;
-	FILE *fp;
+	global_t global;
 
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit (EXIT_FAILURE);
 	}
-	fp = fopen(argv[1], "r");
+	global.fp = fopen(argv[1], "r");
 	
-	while (getline(&buffer, &bufsize, fp) != -1)
+	while (getline(&global.buffer, &bufsize, global.fp) != -1)
 	{
-		opcode = make_opcode(buffer);
+		opcode = make_opcode(global.buffer);
 		if (opcode == NULL)
 			continue;
+		if (global.oparg != NULL)
+			printf("%s\n", global.oparg);
 	}
-	free(buffer);
+	fclose(global.fp);
+	free(global.buffer);
 	return (1);
 }
+

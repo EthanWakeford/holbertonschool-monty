@@ -6,7 +6,24 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char *oparg = NULL;
+
+/**
+*struct global_s - group of global variables to use across functions
+*@buffer: buffer of line read from file
+*@oparg: operator argument for push
+*@fp: file pointer holding the open file to read from
+*
+*Descripton: group of global variables
+*/
+
+typedef struct global_s
+{
+		char *buffer;
+		char *oparg;
+		FILE *fp;
+} global_t;
+
+global_t global;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
