@@ -73,8 +73,20 @@ void swap(stack_t **stack, unsigned int linenumber)
  */
 void add(stack_t **stack, unsigned int linenumber)
 {
-	(void)stack;
-	(void)linenumber;
+	stack_t *tmp;
+	int i = 1;
+
+	for (tmp = *stack; i < 3; i++, tmp = tmp->next)
+	{
+		if (tmp == NULL)
+		{
+			fprintf(stderr, "L%u: can't add, stack too short\n", linenumber);
+			free_global(*stack);
+			exit(EXIT_FAILURE);
+		}
+	}
+	tmp->n += tmp->prev->n;
+	pop(stack, linenumber);
 }
 
 /**
