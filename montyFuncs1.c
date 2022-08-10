@@ -77,7 +77,7 @@ void pall(stack_t **stack, unsigned int linenumber)
 
 void pint(stack_t **stack, unsigned int linenumber)
 {
-	if (!(*stack))
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty", linenumber);
 		free_global(*stack);
