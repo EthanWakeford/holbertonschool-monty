@@ -13,7 +13,7 @@ void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber)
 
 	instruction_t opcodeFunction[] = {
 		{"push", push},
-		{"pull", pull},
+		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
@@ -27,5 +27,5 @@ void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber)
 		if (strcmp(opcodeFunction[i].opcode, opcode) == 0)
 			break;
 	}
-	return (opcodeFunction[i].f)
+	return (opcodeFunction[i].f);
 }

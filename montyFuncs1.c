@@ -13,9 +13,9 @@ void push(stack_t **stack, unsigned int linenumber)
 	stack_t *new;
 	int i = 0;
 
-	while (oparg[i])
+	while (global.oparg[i])
 	{
-		if (isdigit(oparg[i] == 0 && oparg[i] != '-'))
+		if (isdigit(global.oparg[i] == 0 && global.oparg[i] != '-'))
 		{
 			printf("L%u: usage: push integer\n", linenumber);
 			exit(EXIT_FAILURE);
@@ -24,13 +24,13 @@ void push(stack_t **stack, unsigned int linenumber)
 	}
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		return (NULL);
+		return;
 
 	if ((*stack) != NULL)
 		(*stack)->prev = new;
 
 
-	new->n = atoi(oparg);
+	new->n = atoi(global.oparg);
 	new->next = *stack;
 	new->prev = NULL;
 	*stack = new;
@@ -47,6 +47,7 @@ void push(stack_t **stack, unsigned int linenumber)
 void pall(stack_t **stack, unsigned int linenumber)
 {
 	stack_t *printPtr = *stack;
+	(void)linenumber;
 
 	while (printPtr)
 	{
@@ -65,5 +66,6 @@ void pall(stack_t **stack, unsigned int linenumber)
 
 void pint(stack_t **stack, unsigned int linenumber)
 {
-
+	(void)stack;
+	(void)linenumber;
 }
