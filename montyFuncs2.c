@@ -9,7 +9,7 @@
  */
 void pop(stack_t **stack, unsigned int linenumber)
 {
-	stack_t *ptrCpy = (*stack)->next;
+	stack_t *ptrCpy;
 
 	if ((*stack) == NULL)
 	{
@@ -18,9 +18,16 @@ void pop(stack_t **stack, unsigned int linenumber)
 		exit(EXIT_FAILURE);
 	}
 
-	ptrCpy->prev = NULL;
+	if ((*stack)->next != NULL)
+	{
+		ptrCpy = (*stack)->next;
+		ptrCpy->prev = NULL;
+		free(*stack);
+		*stack = ptrCpy;
+		return;
+	}
 	free(*stack);
-	*stack = ptrCpy;
+	*stack = NULL;
 }
 
 /**
