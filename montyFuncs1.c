@@ -8,9 +8,9 @@
  * Return: void
  */
 
-void push(struct_t **stack, unsigned int linenumber)
+void push(stack_t **stack, unsigned int linenumber)
 {
-	struct_t *new;
+	stack_t *new;
 	int i = 0;
 
 	while (oparg[i])
@@ -22,7 +22,7 @@ void push(struct_t **stack, unsigned int linenumber)
 		}
 		i++;
 	}
-	new = malloc(sizeof(struct_t));
+	new = malloc(sizeof(stack_t));
 	if (!new)
 		return (NULL);
 
@@ -44,9 +44,9 @@ void push(struct_t **stack, unsigned int linenumber)
  * Return: void
  */
 
-void pall(struct_t **stack, unsigned int linenumber)
+void pall(stack_t **stack, unsigned int linenumber)
 {
-	struct_t *printPtr = *stack;
+	stack_t *printPtr = *stack;
 
 	while (printPtr)
 	{
@@ -63,7 +63,7 @@ void pall(struct_t **stack, unsigned int linenumber)
  * Return: void
  */
 
-void pint(struct_t **stack, unsigned int linenumber)
+void pint(stack_t **stack, unsigned int linenumber)
 {
 
 }

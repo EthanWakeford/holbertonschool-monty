@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void pop(struct_t **stack, unsigned int linenumber)
+void pop(stack_t **stack, unsigned int linenumber)
 {
 
 }
@@ -19,7 +19,7 @@ void pop(struct_t **stack, unsigned int linenumber)
  *
  * Return: void
  */
-void swap(struct_t **stack, unsigned int linenumber)
+void swap(stack_t **stack, unsigned int linenumber)
 {
 
 }
@@ -31,7 +31,7 @@ void swap(struct_t **stack, unsigned int linenumber)
  *
  * Return: void
  */
-void add(struct_t **stack, unsigned int linenumber)
+void add(stack_t **stack, unsigned int linenumber)
 {
 
 }
@@ -43,8 +43,8 @@ void add(struct_t **stack, unsigned int linenumber)
  *
  * Return: void
  */
-void nop(struct_t **stack, unsigned int linenumber)
+void nop(stack_t **stack, unsigned int linenumber)
 {
 	(void *)stack;
-	(void *)linenumber;
+	(void)linenumber;
 }
