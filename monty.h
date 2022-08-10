@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-extern char *oparg;
+char *oparg = NULL;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -39,12 +39,12 @@ typedef struct instruction_s
 } instruction_t;
 
 char *make_opcode(char *buffer);
-void push(struct_t **stack, unsigned int linenumber);
-void pall(struct_t **stack, unsigned int linenumber);
-void pint(struct_t **stack, unsigned int linenumber);
-void pop(struct_t **stack, unsigned int linenumber);
-void swap(struct_t **stack, unsigned int linenumber);
-void add(struct_t **stack, unsigned int linenumber);
-void nop(struct_t **stack, unsigned int linenumber);
+void push(stack_t **stack, unsigned int linenumber);
+void pall(stack_t **stack, unsigned int linenumber);
+void pint(stack_t **stack, unsigned int linenumber);
+void pop(stack_t **stack, unsigned int linenumber);
+void swap(stack_t **stack, unsigned int linenumber);
+void add(stack_t **stack, unsigned int linenumber);
+void nop(stack_t **stack, unsigned int linenumber);
 
 #endif
