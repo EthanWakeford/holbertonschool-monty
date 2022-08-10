@@ -64,5 +64,6 @@ void pop(stack_t **stack, unsigned int linenumber);
 void swap(stack_t **stack, unsigned int linenumber);
 void add(stack_t **stack, unsigned int linenumber);
 void nop(stack_t **stack, unsigned int linenumber);
+void (*getop(char *opcode))(stack_t **stack, unsigned int linenumber);
 
 #endif
